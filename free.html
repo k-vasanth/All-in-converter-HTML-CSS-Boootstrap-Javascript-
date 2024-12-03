@@ -20,6 +20,7 @@
                     <option value="temperature">Temperature</option>
                     <option value="measurement">Measurements</option>
                     <option value="mass">Mass</option>
+                    <option value="area">Area</option>
                 </select>
             </div>
 
@@ -62,7 +63,7 @@
               <br>
               <div class="row justify-content-center">
                 <div class="col-6 col-sm-3">
-                  <button type="button" class="btn btn-danger ">clear</button>
+                  <button type="button" onclick="clearInput()" class="btn btn-danger ">clear</button>
                 </div>
               </div>
                 
@@ -123,7 +124,7 @@
               </div>
               <div class="row justify-content-center">
                 <div class="col-6 col-sm-3">
-                  <button type="button" class="btn btn-danger ">clear</button>
+                  <button type="button" onclick="clearInput()" class="btn btn-danger ">clear</button>
                 </div>
               </div>
             </div>
@@ -185,10 +186,69 @@
             </div>
             <div class="row justify-content-center">
               <div class="col-6 col-sm-3">
-                <button type="button" class="btn btn-danger">Clear</button>
+                <button type="button" onclick="clearInput()" class="btn btn-danger">Clear</button>
               </div>
             </div>
           </div>
+
+
+          <div class="container-fluid text-center convertion bg-success-subtle" id="area">
+            <div>
+                <h5 class="col text-center" >Area</h5>
+            </div>
+            <div class="row align-items-center">
+              <div class="col">
+                <div>
+                    <div>
+                        <input type="number" class="" id="areaInput_box" placeholder="Enter the number">
+                        <select class="form-select" id="areaInput_category">
+                            <option selected>-select-</option>
+                            <option value="sq_kilometer">Square Kilometer</option>
+                            <option value="sq_meter">Square Meter</option>
+                            <option value="sq_centimeter">Square Centimeter</option>
+                            <option value="sq_millimeter">Square Millimeter</option>
+                            <option value="sq_micrometer">Square Micrometer</option>
+                            <option value="sq_nanometer">Square Nanometer</option>
+                            <option value="sq_mile">Square Mile</option>
+                            <option value="sq_yard">Square Yard</option>
+                            <option value="sq_foot">Square Foot</option>
+                            <option value="sq_inch">Square Inch</option>
+                        </select>
+                    </div>
+                </div>
+              </div>
+              <div class="col">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5"/>
+                  </svg>
+              </div>
+              <div class="col">
+                <div>
+                    <div>
+                        <input type="number" class="" id="areaResult_box" placeholder="Enter the number">
+                        <select class="form-select" id="areaResult_category">
+                            <option selected>-select-</option>
+                            <option value="sq_kilometer">Square Kilometer</option>
+                            <option value="sq_meter">Square Meter</option>
+                            <option value="sq_centimeter">Square Centimeter</option>
+                            <option value="sq_millimeter">Square Millimeter</option>
+                            <option value="sq_micrometer">Square Micrometer</option>
+                            <option value="sq_nanometer">Square Nanometer</option>
+                            <option value="sq_mile">Square Mile</option>
+                            <option value="sq_yard">Square Yard</option>
+                            <option value="sq_foot">Square Foot</option>
+                            <option value="sq_inch">Square Inch</option>
+                        </select>
+                    </div>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-6 col-sm-3">
+                  <button type="button" onclick="clearInput()" class="btn btn-danger ">clear</button>
+                </div>
+              </div>
+            </div>
+            </div>
 
 
             </div>

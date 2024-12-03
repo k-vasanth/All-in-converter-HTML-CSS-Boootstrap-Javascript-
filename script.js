@@ -42,7 +42,13 @@ let timeInputCategory = document.getElementById("timeInput_category");
 let timeResultCategory = document.getElementById("timeResult_category");
 
 
-const allClearBtn = document.querySelector("button");
+const apiUrl = "https://v6.exchangerate-api.com/v6/1fa3e0dd512c58801de5f477/latest/";
+const currencyInputBox = document.getElementById("currencyInput_box");
+const currencyResultBox = document.getElementById("currencyResult_box");
+const currencyInputCategory = document.getElementById("currencyInput_category");
+const currencyResultCategory = document.getElementById("currencyResult_category");
+
+
 
 sideOne.addEventListener("input", tempUpdate);
 tempSource.addEventListener("change", tempUpdate);
@@ -73,7 +79,11 @@ timeInputBox.addEventListener("input", timeUpdateResult);
 timeInputCategory.addEventListener("change", timeUpdateResult);
 timeResultCategory.addEventListener("change", timeUpdateResult);
 
-allClearBtn.addEventListener("click",clearInput);
+
+currencyInputBox.addEventListener("input", currencyUpdateResult);
+currencyInputCategory.addEventListener("change", currencyUpdateResult);
+currencyResultCategory.addEventListener("change", currencyUpdateResult);
+
 
 
 const conversionFactors = {
@@ -826,6 +836,37 @@ function timeUpdateResult() {
   timeResultBox.value = isNaN(inputValue) ? "" : (inputValue * timeConversionFactor).toFixed(2);
 }
 
+function currencyUpdateResult() {
+  const inputValue = parseFloat(currencyInputBox.value);
+  const fromCurrency = currencyInputCategory.value;
+  const toCurrency = currencyResultCategory.value;
+
+  if (isNaN(inputValue) || !fromCurrency || !toCurrency) {
+      currencyResultBox.value = "";
+      return;
+  }
+
+  fetch(`${apiUrl}${fromCurrency}`)
+      .then(response => {
+          if (!response.ok) {
+              throw new Error("Failed to fetch exchange rates.");
+          }
+          return response.json();
+      })
+      .then(data => {
+          const conversionRate = data.conversion_rates[toCurrency];
+          if (conversionRate) {
+              const convertedValue = (inputValue * conversionRate).toFixed(2);
+              currencyResultBox.value = convertedValue;
+          } else {
+              currencyResultBox.value = "Conversion rate unavailable.";
+          }
+      })
+      .catch(error => {
+          currencyResultBox.value = "Error: " + error.message;
+      });
+}
+
 
 function clearInput() {
   sideOne.value = "";
@@ -840,5 +881,7 @@ function clearInput() {
   massResultBox.value = "";
   timeInputBox.value = "";
   timeResultBox.value = "";
+  currencyInputBox.value = "";
+  currencyResultBox.value = "";
 }
 

@@ -23,6 +23,7 @@
                     <option value="volume">Volume</option>
                     <option value="mass">Mass</option>
                     <option value="time">Time</option>
+                    <option value="currency">currency</option>
                 </select>
             </div>
 
@@ -64,9 +65,9 @@
               </div>
               <br>
               <div class="row justify-content-center">
-                <!-- <div class="col-6 col-sm-3">
-                  <button type="button" class="btn btn-danger ">clear</button>
-                </div> -->
+                <div class="col-6 col-sm-3">
+                  <button type="button" onclick="clearInput()" class="btn btn-danger ">clear</button>
+                </div>
               </div>
                 
               
@@ -125,9 +126,9 @@
                 </div>
               </div>
               <div class="row justify-content-center">
-                <!-- <div class="col-6 col-sm-3">
-                  <button type="button" class="btn btn-danger ">clear</button>
-                </div> -->
+                <div class="col-6 col-sm-3">
+                  <button type="button" onclick="clearInput()" class="btn btn-danger ">clear</button>
+                </div>
               </div>
             </div>
           </div>
@@ -184,9 +185,9 @@
                 </div>
               </div>
               <div class="row justify-content-center">
-                <!-- <div class="col-6 col-sm-3">
-                  <button type="button" class="btn btn-danger ">clear</button>
-                </div> -->
+                <div class="col-6 col-sm-3">
+                  <button type="button" onclick="clearInput()" class="btn btn-danger ">clear</button>
+                </div>
               </div>
             </div>
             </div>
@@ -252,7 +253,7 @@
             </div>
             <div class="row justify-content-center">
               <div class="col-6 col-sm-3">
-                <button type="button" class="btn btn-danger ">clear</button>
+                <button type="button" onclick="clearInput()" class="btn btn-danger ">clear</button>
               </div>
             </div>
           </div>
@@ -314,7 +315,7 @@
             </div>
             <div class="row justify-content-center">
               <div class="col-6 col-sm-3">
-                <button type="button" class="btn btn-danger">Clear</button>
+                <button type="button" onclick="clearInput()" class="btn btn-danger">Clear</button>
               </div>
             </div>
           </div>
@@ -365,12 +366,92 @@
             </div>
             <div class="row justify-content-center">
               <div class="col-6 col-sm-3">
-                <button type="button" class="btn btn-danger ">clear</button>
+                <button type="button" onclick="clearInput()" class="btn btn-danger ">clear</button>
               </div>
             </div>
           </div>
 
           </div>
+
+
+
+          <div class="container-fluid text-center convertion bg-success-subtle" id="currency">
+            <div>
+                <h5 class="col text-center">Currency Converter</h5>
+            </div>
+            <div class="row align-items-center">
+                <div class="col">
+                    <div>
+                        <input type="number" id="currencyInput_box" placeholder="Enter the amount">
+                        <select class="form-select" id="currencyInput_category">
+                            <option selected>-select-</option>
+                            <option value="USD">USD - United States Dollar</option>
+                            <option value="EUR">EUR - Euro</option>
+                            <option value="GBP">GBP - British Pound Sterling</option>
+                            <option value="INR">INR - Indian Rupee</option>
+                            <option value="JPY">JPY - Japanese Yen</option>
+                            <option value="AUD">AUD - Australian Dollar</option>
+                            <option value="CAD">CAD - Canadian Dollar</option>
+                            <option value="CHF">CHF - Swiss Franc</option>
+                            <option value="CNY">CNY - Chinese Yuan</option>
+                            <option value="NZD">NZD - New Zealand Dollar</option>
+                            <option value="SGD">SGD - Singapore Dollar</option>
+                            <option value="HKD">HKD - Hong Kong Dollar</option>
+                            <option value="SEK">SEK - Swedish Krona</option>
+                            <option value="NOK">NOK - Norwegian Krone</option>
+                            <option value="KRW">KRW - South Korean Won</option>
+                            <option value="MXN">MXN - Mexican Peso</option>
+                            <option value="ZAR">ZAR - South African Rand</option>
+                            <option value="BRL">BRL - Brazilian Real</option>
+                            <option value="AED">AED - United Arab Emirates Dirham</option>
+                            <option value="SAR">SAR - Saudi Riyal</option>
+                            
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 1 1 .708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5"/>
+                    </svg>
+                </div>
+                <div class="col">
+                    <div>
+                        <input type="text" id="currencyResult_box" placeholder="Converted amount" readonly>
+                        <select class="form-select" id="currencyResult_category">
+                            <option selected>-select-</option>
+                            <option value="USD">USD - United States Dollar</option>
+                            <option value="EUR">EUR - Euro</option>
+                            <option value="GBP">GBP - British Pound Sterling</option>
+                            <option value="INR">INR - Indian Rupee</option>
+                            <option value="JPY">JPY - Japanese Yen</option>
+                            <option value="AUD">AUD - Australian Dollar</option>
+                            <option value="CAD">CAD - Canadian Dollar</option>
+                            <option value="CHF">CHF - Swiss Franc</option>
+                            <option value="CNY">CNY - Chinese Yuan</option>
+                            <option value="NZD">NZD - New Zealand Dollar</option>
+                            <option value="SGD">SGD - Singapore Dollar</option>
+                            <option value="HKD">HKD - Hong Kong Dollar</option>
+                            <option value="SEK">SEK - Swedish Krona</option>
+                            <option value="NOK">NOK - Norwegian Krone</option>
+                            <option value="KRW">KRW - South Korean Won</option>
+                            <option value="MXN">MXN - Mexican Peso</option>
+                            <option value="ZAR">ZAR - South African Rand</option>
+                            <option value="BRL">BRL - Brazilian Real</option>
+                            <option value="AED">AED - United Arab Emirates Dirham</option>
+                            <option value="SAR">SAR - Saudi Riyal</option>
+                            
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-6 col-sm-3">
+                    <button type="button" onclick="clearInput()" class="btn btn-danger">Clear</button>
+                </div>
+            </div>
+        </div>
+        
+
 
             </div>
 
